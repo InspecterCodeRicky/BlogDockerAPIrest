@@ -14,7 +14,9 @@ class How {
     // Check if the route is in $Routes
     if (!in_array(explode('?',$uri)[0], $Routes)) {
       // die( 'Invalid route.' );
-      header("Location: ".BASEDIR."error");
+      var_dump($Routes);
+      header("Location: error");
+      echo "error page";
     }
 
     return $uri;

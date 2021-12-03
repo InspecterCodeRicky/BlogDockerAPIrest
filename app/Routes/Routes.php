@@ -6,7 +6,7 @@ Route::set('error', function() {
 });
 
 // This is the index page. The first route.
-Route::set('', function() {
+Route::set('/', function() {
   View::make('articles');
 });
 Route::set('arcticle/<1>', function() {

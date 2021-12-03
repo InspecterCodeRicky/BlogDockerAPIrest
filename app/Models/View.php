@@ -19,7 +19,7 @@ class View {
           $this->_ctrl = new $controllerClass();
         } 
         else {
-          require_once( './app/views/'.$view.'.php' );
+          require_once( 'Views/'.$view.'.php' );
         }
         return 1;
       }

@@ -27,7 +27,7 @@ class Route {
 
   // This method creates dynamic routes.
   public static function dyn($dyn_routes) {
-    echo "null";
+    
     // Split the route on '/', i.e user/<1>
     $route_components = explode('/', $dyn_routes);
     // Split the URI on '/', i.e user/francis
