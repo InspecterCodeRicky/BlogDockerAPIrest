@@ -3,8 +3,8 @@
 
 abstract class PDOFactory {
     private static string $DB_USER = "root";
-    private static string $DB_PASSWORD = "";
-    private static string $HOST = "localhost";
+    private static string $DB_PASSWORD = "example";
+    private static string $HOST = "db";
     const DATABASE = "hetic";
     private static $pdo;
 
@@ -14,10 +14,10 @@ abstract class PDOFactory {
         self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     
-    static protected function getConnection() : PDO
+    protected function getConnection() : PDO
     {
         if(self::$pdo == null) {
-            self::getMysqlConnection();
+            $this->getMysqlConnection();
         }
         return self::$pdo;
     }

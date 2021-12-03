@@ -9,8 +9,3 @@ $Routes = array();
  * will eventually be set by the installer when it is created.
 */
 define( 'BASEDIR', '' );
-
-
-// $url = trim($_SERVER['REQUEST_URI'], '/');
-// $url = explode('/', $url);
-// session_start();

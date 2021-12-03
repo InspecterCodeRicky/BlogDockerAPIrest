@@ -1,0 +1,17 @@
+<?php
+
+
+class SecurityManager extends PDOFactory
+{
+    protected static $pdo;
+
+    public function __construct()
+    {
+        self::$pdo = $this->getConnection();
+    }
+
+    public function login()
+    {
+        
+    }
+}

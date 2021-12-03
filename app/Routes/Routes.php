@@ -1,14 +1,15 @@
 <?php
 
-// This is the index page. The first route.
-Route::set('error', function() {
-  View::make('Error');
-});
 
-// This is the index page. The first route.
-Route::set('/', function() {
-  View::make('articles');
+Route::set('error', function() {
+  GetController::runControler('error', 'error');
 });
-Route::set('arcticle/<1>', function() {
-  View::make('articles');
+Route::set('/', function() {
+  GetController::runControler('ControllerArticles', 'articles', 'showArticles');
+});
+Route::set('article/<1>', function() {
+  GetController::runControler('ControllerArticles', 'singleArticle', 'getOneArticle');
+});
+Route::set('login', function() {
+  GetController::runControler('ControllerSecurity', 'login', 'login');
 });

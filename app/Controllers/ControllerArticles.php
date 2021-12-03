@@ -1,19 +1,15 @@
 <?php
+require_once( 'Manager/ArticleManager.php' );
+require_once( 'Entity/Article.php' );
 
-class ControllerArticles {
 
-    private $_articlesManger;
+class ControllerArticles extends ControllerBigBoss  {
+
+  private $_articlesManger;
     
-    public function __construct()
-    {
-        $this->articles();   
-    }
-
-  private function articles() {
-      require_once( './app/Manager/ArticleManger.php' );
-      require_once( './app/Entity/Article.php' );
+  public function runShowArticles() {
       $this->_articlesManger = new ArticleManager();
       $articles = $this->_articlesManger->getArticles();
-      require_once( './app/views/articles.php' );
+      return $this->MakeView('Mon blog',  $articles, 'articles');
   }
 }
