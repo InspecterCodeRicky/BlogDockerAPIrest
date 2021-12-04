@@ -2,14 +2,18 @@
 
 
 Route::set('error', function() {
-  GetController::runControler('error', 'error');
+  GetController::runController('ControllerError', 'PageNotFound');
 });
-Route::set('/', function() {
-  GetController::runControler('ControllerArticles', 'articles', 'showArticles');
+Route::set('', function() {
+  GetController::runController('ControllerArticles', 'showArticles');
 });
 Route::set('article/<1>', function() {
-  GetController::runControler('ControllerArticles', 'singleArticle', 'getOneArticle');
+  GetController::runController('ControllerArticles', 'getOneArticle');
 });
 Route::set('login', function() {
-  GetController::runControler('ControllerSecurity', 'login', 'login');
+  GetController::runController('ControllerSecurity', 'login');
+});
+
+Route::set('register', function() {
+  GetController::runController('ControllerSecurity', 'register');
 });

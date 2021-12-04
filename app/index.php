@@ -7,7 +7,7 @@
       // */
       require_once('Routes/Routes.php');
       function __autoload($class_name) {
-            require_once 'Models/'.$class_name.'.php';
+            require_once 'Utilities/'.$class_name.'.php';
       }
 
 

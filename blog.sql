@@ -32,6 +32,8 @@ CREATE TABLE `blog` (
   `title` varchar(255) NOT NULL,
   `content` varchar(255) NOT NULL,
   `createdAt` datetime DEFAULT NULL
+  `image` text DEFAULT NULL
+  `authorId` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

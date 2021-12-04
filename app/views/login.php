@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<div>
+    <h4>Modal Login</h4>
+    <?php
+    $flash = new Flash();
+    if ($flash->hasFlash()) :?>
+            <p style="color: red;"><?= $flash->getFlash()['flash']; ?></p>
+    <?php 
+    endif; ?>
     <form action="" method="post">
-        <input type="email" name="email_login" id="email_login">
-        <input type="password" name="password_login" id="password_login">
-        <input type="button" value="se connecter">
+        <input value="<?= $_POST['email_login']; ?>" type="text" name="email_login" id="email_login">
+        <input value="<?= $_POST['password_login']; ?>" type="password" name="password_login" id="password_login">
+        <input type="submit" value="se connecter">
     </form>
-</body>
-</html>
+    <a href="<?=BASEDIR?>register">Creer un compte</a>
+</div>

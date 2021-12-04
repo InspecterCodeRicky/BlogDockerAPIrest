@@ -8,6 +8,11 @@
 </head>
 <body>
     <p>header</p>
+    <p>
+        <ul>
+            <li><a href="<?=BASEDIR?>login">se connecter</a></li>
+        </ul>
+    </p>
     <?=  $bodyContent ?>
     <p>footer</p>
 </body>
