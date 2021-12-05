@@ -107,13 +107,13 @@ class SecurityManager extends PDOFactory
 
     // METHOD UPDATE user
     public function update_user(User $obj) : User {
-        $query = 'UPDATE ' . PDOFactory::DATABASE . '.users SET lastname = : lastname, firstname = : firstname, password = :password, isAdmin = : isAdmin WHERE email = :email';
+        $query = 'UPDATE ' . PDOFactory::DATABASE . '.users SET lastname = :lastname, firstname = :firstname, password = :password, isAdmin = :isAdmin WHERE email = :email';
         $req = self::$pdo->prepare($query);
-        $req->bindValue("lastname", $obj->getLastname());
-        $req->bindValue("firstname", $obj->getFirstname());
-        $req->bindValue("password", $obj->getPassword());
-        $req->bindValue("isAdmin", $obj->getIsAdmin());
-        $req->bindValue("email", $obj->getEmail());
+        $req->bindValue(":lastname", $obj->getLastname());
+        $req->bindValue(":firstname", $obj->getFirstname());
+        $req->bindValue(":password", $obj->getPassword());
+        $req->bindValue(":isAdmin", $obj->getIsAdmin());
+        $req->bindValue(":email", $obj->getEmail());
         $req->execute();
         $user = $this->get_user_by_email($obj->getEmail());
         return $user;

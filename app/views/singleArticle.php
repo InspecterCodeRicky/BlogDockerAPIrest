@@ -1,4 +1,7 @@
 
+<?php
+    $reply;
+?>
 
 <section class="blog-wrapper sect-pt4" id="blog">
     <div class="container">
@@ -6,98 +9,50 @@
         <div class="col-md-8">
           <div class="post-box">
             <div class="post-thumb">
-              <img src="img/post-1.jpg" class="img-fluid" alt="">
+              <img src="<?='/'.$data['dataPost']->getImage()?>" class="img-fluid" alt="">
             </div>
             <div class="post-meta">
-                <h4><?=$data->getTitle()?></h4>
+                <h4><?=$data['dataPost']->getTitle()?></h4>
               <ul>
                 <li>
                   <span class="ion-ios-person"></span>
-                  <a><?=$data->getAuthorId()?></a>
+                  <a><?=$data['authorPost']->getFirstname()?></a>
                 </li>
                 <li>
                   <span class="ion-pricetag"></span>
-                  <a><?=$data->getCreatedAt()?></a>
+                  <a><?=$data['dataPost']->getCreatedAt()?></a>
                 </li>
                 <li>
                   <span class="ion-chatbox"></span>
-                  <a href="#">14</a>
+                  <a href="#comments"><?=count($data['commentPost'])?></a>
                 </li>
               </ul>
             </div>
             <div class="article-content">
-                <p><?=$data->getContent()?></p>
-              <blockquote class="blockquote">
-                <p><?=$data->getContent()?></p>
-              </blockquote>
+                <p><?=$data['dataPost']->getContent()?></p>
             </div>
           </div>
-          <div class="box-comments">
+          <div id="comments" class="box-comments">
             <div class="title-box-2">
-              <h4 class="title-comments title-left">Comments (34)</h4>
+              <h4 class="title-comments title-left">Commentaires (<?=count($data['commentPost'])?>)</h4>
             </div>
             <ul class="list-comments">
+            <?php
+            foreach ($data['commentPost'] as $comment) {?>
               <li>
                 <div class="comment-avatar">
-                  <img src="img/testimonial-2.jpg" alt="">
+                  <img src="/<?=$comment->getAuthorAvatar()?>" alt="">
                 </div>
                 <div class="comment-details">
-                  <h4 class="comment-author">Oliver Colmenares</h4>
-                  <span>18 Sep 2017</span>
+                  <h4 class="comment-author"><?=$comment->getAuthorPseudo()?></h4>
+                  <span><?=$comment->getCreatedAt()?></span>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
-                    ipsam temporibus maiores
-                    quae natus libero optio, at qui beatae ducimus placeat debitis voluptates amet corporis.
+                  <?=$comment->getContent()?>
                   </p>
                   <a href="3">Reply</a>
                 </div>
               </li>
-              <li>
-                <div class="comment-avatar">
-                  <img src="img/testimonial-4.jpg" alt="">
-                </div>
-                <div class="comment-details">
-                  <h4 class="comment-author">Carmen Vegas</h4>
-                  <span>18 Sep 2017</span>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
-                    ipsam temporibus maiores
-                    quae natus libero optio, at qui beatae ducimus placeat debitis voluptates amet corporis,
-                    veritatis deserunt.
-                  </p>
-                  <a href="3">Reply</a>
-                </div>
-              </li>
-              <li class="comment-children">
-                <div class="comment-avatar">
-                  <img src="img/testimonial-2.jpg" alt="">
-                </div>
-                <div class="comment-details">
-                  <h4 class="comment-author">Oliver Colmenares</h4>
-                  <span>18 Sep 2017</span>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
-                    ipsam temporibus maiores
-                    quae.
-                  </p>
-                  <a href="3">Reply</a>
-                </div>
-              </li>
-              <li>
-                <div class="comment-avatar">
-                  <img src="img/testimonial-2.jpg" alt="">
-                </div>
-                <div class="comment-details">
-                  <h4 class="comment-author">Oliver Colmenares</h4>
-                  <span>18 Sep 2017</span>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
-                    ipsam temporibus maiores
-                    quae natus libero optio.
-                  </p>
-                  <a href="3">Reply</a>
-                </div>
-              </li>
+              <?php } ?>   
             </ul>
           </div>
           <div class="form-comments">
@@ -108,24 +63,9 @@
             </div>
             <form class="form-mf">
               <div class="row">
-                <div class="col-md-6 mb-3">
-                  <div class="form-group">
-                    <input type="text" class="form-control input-mf" id="inputName" placeholder="Name *" required>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <div class="form-group">
-                    <input type="email" class="form-control input-mf" id="inputEmail1" placeholder="Email *" required>
-                  </div>
-                </div>
                 <div class="col-md-12 mb-3">
                   <div class="form-group">
-                    <input type="url" class="form-control input-mf" id="inputUrl" placeholder="Website">
-                  </div>
-                </div>
-                <div class="col-md-12 mb-3">
-                  <div class="form-group">
-                    <textarea id="textMessage" class="form-control input-mf" placeholder="Comment *" name="message"
+                    <textarea id="textMessage" class="form-control input-mf" placeholder="Comment *" name="post_comment"
                       cols="45" rows="8" required></textarea>
                   </div>
                 </div>
@@ -187,8 +127,9 @@
     <p><a href="<?= BASEDIR."remove-article/".$data['dataPost']->getId()?>">supprimer l'article</a></p>
 
     <p>ajouter un commentaire</p>
-    <form action="/add-comment/<?=$data['dataPost']->getId()?>" method="POST" enctype="multipart/form-data">
-        <input value="<?= $_POST['post_comment']; ?>" type="text" name="post_content" id="post_content">
+    <a href="/logout">logout</a>
+    <form action="/add-comment/<?=$data['dataPost']->getId()?>" method="post">
+        <input value="<?= $_POST['post_comment']; ?>" type="text" name="post_comment" id="post_comment">
         <input type="submit" value="Valider">
     </form>
     

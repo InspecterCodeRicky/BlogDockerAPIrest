@@ -36,7 +36,7 @@ class ControllerSecurity extends ControllerBigBoss
     $this->_flash = new Flash();
     $this->_securityManger->kill_session();
     $this->_flash->setFlash("Vous êtes deconnecté(é)", "succes");
-    return $this->MakeView('Se connecter', [], 'articles');
+    return $this->redirectNewRoute('/home');
   }
 
   function runLogin()
@@ -49,7 +49,7 @@ class ControllerSecurity extends ControllerBigBoss
     if ($user_session !== null) {
       $this->redirectNewRoute('/home');
     }
-    
+
     if ($_SERVER['REQUEST_METHOD'] == "GET") {
       return $this->MakeView('Se connecter', [], 'login');
     }

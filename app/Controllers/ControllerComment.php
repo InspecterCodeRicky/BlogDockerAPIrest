@@ -4,6 +4,7 @@ require_once('Manager/CommentManager.php');
 require_once('Manager/SecurityManager.php');
 require_once('Entity/Article.php');
 require_once('Entity/User.php');
+require_once('Entity/Comment.php');
 
 
 class ControllerComment extends ControllerBigBoss
@@ -52,30 +53,31 @@ class ControllerComment extends ControllerBigBoss
         $user_session = $this->_securityManger->get_user_session();
         if ($user_session == null) {
             $this->_flash->setFlash("Connectez-vous pour acceder à cette ressource");
-            $this->redirectNewRoute("\/article/" . $paramIdArticle);
+            $this->redirectNewRoute("\article/" . $paramIdArticle);
         }
 
         if ($_SERVER['REQUEST_METHOD'] == "GET") {
-            $this->redirectNewRoute("\/article/" . $paramIdArticle);
+            $this->redirectNewRoute("\article/" . $paramIdArticle);
         }
-        
         if (isset($_POST['post_comment']) && empty($_POST['post_comment'])) {
             $this->_flash->setFlash("Le champs commetaire est vide");
+            $this->redirectNewRoute("\article/" . $paramIdArticle);
         } 
-        echo "djekjde";
 
         $article = $this->_articlesManger->get_article_by_id($paramIdArticle);
+        echo  $user_session->getAvatar();
         if (!$this->_flash->hasFlash() && $article !== null) {
             $comment = new Comment(array(
             'content' => $_POST['post_comment'],
             'createdAt' => date('Y-m-d H:i:s'),
             'reply' => '',
-            'authorId' =>  $user_session->getId(),
+            'postId' => (int)$paramIdArticle,
+            'authorId' =>  (int)$user_session->getId(),
             'authorPseudo' =>  $user_session->getFirstname().' ' .$user_session->getLastname(),
-            'athorAvatar' =>  $user_session->getAvatar(),
+            'authorAvatar' =>  $user_session->getAvatar(),
             ));
             $this->_commentManger->add_comment($comment);
-            $this->redirectNewRoute("\/article/" . $paramIdArticle);
+            $this->redirectNewRoute("\article/" . $paramIdArticle);
         } else {
             $this->_flash->setFlash("Oups, quelque chose s'est mal passée");
             $this->redirectNewRoute('/home');

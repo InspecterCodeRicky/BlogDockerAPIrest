@@ -16,11 +16,6 @@
       
       <div class="row">
 
-<<<<<<< HEAD
-<div>
-    <h1>Mes articles </h1>
-    <p><a href="<?=BASEDIR. "add-article"?>">ajouter un article</a></p>
-=======
         <?php
             foreach ($data as $article) {?>
                 <div class="col-md-4">
@@ -44,25 +39,12 @@
                             <span class="author">Morgan Freeman</span>
                             </a>
                         </div>
->>>>>>> c80d88326f1f85623a10c9a8348a30d20d0681d9
 
                         </div>
                     </div>
                 </div>
 
-<<<<<<< HEAD
-    <?php
-        foreach ($data as $article) {?>
-            <h4><a href="article/<?=$article->getId()?>"><?=$article->getTitle()?></a></h4>
-            <p><?=$article->getContent()?></p>
-            
-        <?php } ?>
-
-    
-</div>
-=======
             <?php } ?>      
       </div>
     </div>
   </section>
->>>>>>> c80d88326f1f85623a10c9a8348a30d20d0681d9

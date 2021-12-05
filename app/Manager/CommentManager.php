@@ -40,20 +40,20 @@ class CommentManager extends PDOFactory
 
     public function add_comment(Comment $obj): bool
     {
-        $query = 'UPDATE ' . PDOFactory::DATABASE . '.commentPost SET postId = : postId, content = : content, authorId = :authorId, authorPseudo = :authorPseudo, authorAvatar = :authorAvatar , createdAt = :createdAt, replyId = :replyId';
+        $query = 'INSERT INTO ' . PDOFactory::DATABASE . '.commentPost (postId, content, authorId, authorPseudo, authorAvatar , createdAt, replyId) VALUES (:postId,:content,:authorId,:authorPseudo,:authorAvatar,:createdAt,:replyId)';
         $req = self::$pdo->prepare($query);
-        $req->bindValue("postId", $obj->getPostId());
-        $req->bindValue("content", $obj->getContent());
-        $req->bindValue("authorId", $obj->getAuthorId());
-        $req->bindValue("authorPseudo", $obj->getAuthorPseudo());
-        $req->bindValue("authorAvatar", $obj->getAuthorAvatar());
-        $req->bindValue("createdAt", $obj->getCreatedAt());
-        $req->bindValue("replyId", $obj->getReplyId());
+        $req->bindValue(":postId", $obj->getPostId());
+        $req->bindValue(":content", $obj->getContent());
+        $req->bindValue(":authorId", $obj->getAuthorId());
+        $req->bindValue(":authorPseudo", $obj->getAuthorPseudo());
+        $req->bindValue(":authorAvatar", $obj->getAuthorAvatar());
+        $req->bindValue(":createdAt", $obj->getCreatedAt());
+        $req->bindValue(":replyId", $obj->getReplyId());
         $req->execute();
         return $req->fetch(PDO::FETCH_ASSOC);
     }
 
-   
+
     public function remove_comment(Comment $obj): bool
     {
         $query = 'DELETE FROM ' . PDOFactory::DATABASE . '.commentPost WHERE id = :id';
@@ -61,5 +61,4 @@ class CommentManager extends PDOFactory
         $req->bindValue(':email', $obj->getId());
         return $req->execute();
     }
-
 }

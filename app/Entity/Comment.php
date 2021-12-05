@@ -56,9 +56,7 @@ class Comment extends CommonHydrator
     }
     public function setReplyId($replyId)
     {
-        if (is_int($replyId)) {
-            $this->_reply_id = $replyId;
-        }
+        $this->_reply_id = $replyId;
     }
 
     // getters 
