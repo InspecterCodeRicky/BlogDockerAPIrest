@@ -19,7 +19,7 @@
                 <p style="color: red;"><?= $flash->getFlash()['flash']; ?></p>
         <?php 
         endif; ?>
-            <form action="" method="post" class='loginForm'>
+            <form action="" method="post" class='loginForm' enctype="multipart/form-data">
                 <div class='loginForm_inputLogin'>
                     <label for="firstname_register">First name</label>
                     <input value="<?= $_POST['firstname_register']; ?>" type="text" name="firstname_register" id="firstname_register">
@@ -36,6 +36,12 @@
                     <label for="email_register">Password</label>
                     <input value="<?= $_POST['password_register']; ?>" type="password" name="password_register" id="password_register">
                 </div>
+
+                <div class='loginForm_inputLogin'>
+                    <label for="preview_input">Avatar</label>
+                    <input name="fileToUpload" id="preview_input" type="file"/>
+                </div>
+
                 <input type="submit" value="se connecter" class='button buttonValid'>
             </form>
       </div>

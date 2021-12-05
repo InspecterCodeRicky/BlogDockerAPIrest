@@ -55,7 +55,17 @@
                     <a class="nav-link js-scroll" >About</a>
                 </li>
                 <li class="nav-item">
+                    <?php
+                        if(isset($_SESSION['user_info'])) {
+                    ?>
+                        <a class="nav-link js-scroll" href="<?=BASEDIR?>profile">MY PROFIL</a>
+                    <?php
+                        } else {
+                    ?>
                     <a class="nav-link js-scroll" href="<?=BASEDIR?>login">LOGIN</a>
+                    <?php
+                        }
+                    ?>
                 </li>
             </ul>
         </div>
