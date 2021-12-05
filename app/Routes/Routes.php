@@ -13,7 +13,14 @@ Route::set('article/<1>', function() {
 Route::set('login', function() {
   GetController::runController('ControllerSecurity', 'login');
 });
-
 Route::set('register', function() {
   GetController::runController('ControllerSecurity', 'register');
+});
+
+Route::set('api/articles', function() {
+  GetController::runController('ControllerArticles', 'multi');
+});
+
+Route::set('api/article', function() {
+  GetController::runController('ControllerArticles', 'apiArticle');
 });
