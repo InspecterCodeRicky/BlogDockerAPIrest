@@ -45,32 +45,24 @@
         </button>
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link js-scroll active" href="<?=BASEDIR?>">Articles</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll" href="<?=BASEDIR?>login">LOGIN</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll active" href="<?=BASEDIR?>">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll active" href="<?=BASEDIR?>">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll" >About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll" href="<?=BASEDIR?>login">LOGIN</a>
+                </li>
             </ul>
         </div>
         </div>
     </nav>
 
 
-    <div id="home" class="intro route bg-image" style="background-image: url(img/intro-bg.jpg)">
-        <div class="overlay-itro"></div>
-        <div class="intro-content display-table">
-        <div class="table-cell">
-            <div class="container">
-            <h1 class="intro-title mb-4">Hello there !</h1>
-            <p class="intro-subtitle"><span class="text-slider-items">Travel, Lifestyle</span><strong class="text-slider"></strong></p>
-            </div>
-        </div>
-        </div>
-    </div>
 
 
 
