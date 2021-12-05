@@ -66,5 +66,7 @@ class Article extends CommonHydrator{
     {
        return $this->_image_path;
     }
-
+    public function toArray()  {
+        return array("id" => $this->_id, "title" => $this->_title, "content" => $this->_content, "createdAt" => $this->_created_at);
+    }
 }

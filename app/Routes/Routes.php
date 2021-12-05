@@ -24,3 +24,13 @@ Route::set('register', function() {
 Route::set('profile', function() {
   GetController::runController('ControllerSecurity', 'showProfile');
 });
+
+
+// api routes
+Route::set('api/articles', function() {
+  GetController::runController('ControllerArticles', 'multi');
+});
+
+Route::set('api/article', function() {
+  GetController::runController('ControllerArticles', 'apiArticle');
+});

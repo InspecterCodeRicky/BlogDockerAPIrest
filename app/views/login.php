@@ -1,7 +1,6 @@
 <div>
     <h4>Modal Login</h4>
     <?php
-    var_dump( $_SESSION['user_info']);
     $flash = new Flash();
     if ($flash->hasFlash()) :?>
             <p style="color: red;"><?= $flash->getFlash()['flash']; ?></p>

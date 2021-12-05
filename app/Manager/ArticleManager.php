@@ -47,4 +47,52 @@ class ArticleManager extends PDOFactory
         return null;
         $req->closeCursor();
     }
+
+    
+
+    public function getArticlesForUser($userId)
+    {
+        $pdo = ArticleManager::$pdo;
+        $var = [];
+        $query = $pdo->prepare('SELECT * FROM blog WHERE authorId=?');
+        $query->execute([$userId]); 
+        while ($row = $query->fetch()) {
+            $article = new Article($row);
+            $var[] = $article->toArray();
+        }
+        return $var;
+    }
+
+    public function addArticle($title, $content, $image, $authorId) {
+        $pdo = ArticleManager::$pdo;
+        try {
+            $sql = "INSERT INTO blog (id, title, content, createdAt, image, authorId) VALUES (?,?,?,?,?,?)";
+            $stmt= $pdo->prepare($sql);
+            $stmt->execute([null, $title, $content, date('Y-m-d H:i:s'), $image, $authorId]);
+        }catch (Exception $e){
+            throw $e;
+        }
+    }
+
+    public function updateArticle($id, $title, $content, $image) {
+        $pdo = ArticleManager::$pdo;
+        try {
+            $sql = "UPDATE blog SET title=?, content=?, image=? WHERE id=?";
+            $stmt= $pdo->prepare($sql);
+            $stmt->execute([$title, $content, $image, $id]);
+        }catch (Exception $e){
+            throw $e;
+        }
+    }
+
+    public function removeArticle($id) {
+        $pdo = ArticleManager::$pdo;
+        try {
+            $sql = "DELETE FROM blog WHERE id=?";
+            $stmt= $pdo->prepare($sql);
+            $stmt->execute([$id]);
+        }catch (Exception $e){
+            throw $e;
+        }
+    }
 }
