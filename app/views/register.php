@@ -1,6 +1,6 @@
 <div>
 
-<div class="testimonials paralax-mf bg-image" style="background-image: url(img/overlay-bg.jpg)">
+<div class="testimonials paralax-mf bg-image" style="background-image: url(public/img/overlay-bg.jpg)">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
