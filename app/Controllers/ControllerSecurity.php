@@ -22,7 +22,7 @@ class ControllerSecurity extends ControllerBigBoss
       $this->_flash->setFlash("Vous n'êtes pas connecté(é)");
       $this->redirectNewRoute('/home');
     }
-    // return $this->MakeView('Mon profil', $user_session, 'profile');
+    return $this->MakeView('Mon profil', $user_session, 'profil');
   }
 
   public function logout() {
