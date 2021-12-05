@@ -21,7 +21,7 @@
                 <div class="col-md-4">
                     <div class="card card-blog">
                         <div class="card-img">
-                        <a href="article/<?=$article->getId()?>"><?=$article->getTitle()?><img src="img/post-3.jpg" alt="" class="img-fluid"></a>
+                        <a href="article/<?=$article->getId()?>"><img src="img/post-3.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="card-body">
                         <div class="card-category-box">

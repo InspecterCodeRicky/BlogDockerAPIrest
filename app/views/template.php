@@ -46,25 +46,13 @@
         <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
             <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link js-scroll active" href="#home">Home</a>
+                <a class="nav-link js-scroll active" href="<?=BASEDIR?>">Articles</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link js-scroll" href="#about">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll" href="#service">Services</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll" href="#work">Work</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link js-scroll" href="<?=BASEDIR?>login">LOGIN</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll" href="#blog">Blog</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll" href="#contact">Contact</a>
             </li>
             </ul>
         </div>
@@ -72,19 +60,17 @@
     </nav>
 
 
-    <!-- <div id="home" class="intro route bg-image" style="background-image: url(img/intro-bg.jpg)">
+    <div id="home" class="intro route bg-image" style="background-image: url(img/intro-bg.jpg)">
         <div class="overlay-itro"></div>
         <div class="intro-content display-table">
         <div class="table-cell">
-            <div class="container"> -->
-            <!--<p class="display-6 color-d">Hello, world!</p>-->
-            <!-- <h1 class="intro-title mb-4">Hello there !</h1>
-            <p class="intro-subtitle"><span class="text-slider-items">Travel, Lifestyle</span><strong class="text-slider"></strong></p> -->
-            <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
-            <!-- </div>
+            <div class="container">
+            <h1 class="intro-title mb-4">Hello there !</h1>
+            <p class="intro-subtitle"><span class="text-slider-items">Travel, Lifestyle</span><strong class="text-slider"></strong></p>
+            </div>
         </div>
         </div>
-    </div> -->
+    </div>
 
 
 
@@ -107,5 +93,25 @@
     </div>
     <?=  $bodyContent ?>
     <!-- <p>footer</p> -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <div id="preloader"></div>
+
+    <!-- JavaScript Libraries -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="/lib/popper/popper.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/counterup/jquery.waypoints.min.js"></script>
+    <script src="/lib/counterup/jquery.counterup.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/lightbox/js/lightbox.min.js"></script>
+    <script src="/lib/typed/typed.min.js"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="/contactform/contactform.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="/js/main.js"></script>
 </body>
 </html>
