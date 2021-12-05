@@ -9,21 +9,21 @@
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="/img/favicon.png" rel="icon">
-    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="<?=BASEDIR?>public/img/favicon.png" rel="icon">
+    <link href="<?=BASEDIR?>public/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Bootstrap CSS File -->
-    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?=BASEDIR?>public/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Libraries CSS Files -->
-    <link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="<?=BASEDIR?>public/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?=BASEDIR?>public/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="<?=BASEDIR?>public/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="<?=BASEDIR?>public/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="<?=BASEDIR?>public/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
     <!-- Main Stylesheet File -->
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="<?=BASEDIR?>public/css/style.css" rel="stylesheet">
 
     <!-- =======================================================
     Theme Name: DevFolio
@@ -89,21 +89,21 @@
     <div id="preloader"></div>
 
     <!-- JavaScript Libraries -->
-    <script src="/lib/jquery/jquery.min.js"></script>
-    <script src="/lib/jquery/jquery-migrate.min.js"></script>
-    <script src="/lib/popper/popper.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lib/easing/easing.min.js"></script>
-    <script src="/lib/counterup/jquery.waypoints.min.js"></script>
-    <script src="/lib/counterup/jquery.counterup.js"></script>
-    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="/lib/lightbox/js/lightbox.min.js"></script>
-    <script src="/lib/typed/typed.min.js"></script>
+    <script src="<?=BASEDIR?>public/lib/jquery/jquery.min.js"></script>
+    <script src="<?=BASEDIR?>public/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="<?=BASEDIR?>public/lib/popper/popper.min.js"></script>
+    <script src="<?=BASEDIR?>public/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?=BASEDIR?>public/lib/easing/easing.min.js"></script>
+    <script src="<?=BASEDIR?>public/lib/counterup/jquery.waypoints.min.js"></script>
+    <script src="<?=BASEDIR?>public/lib/counterup/jquery.counterup.js"></script>
+    <script src="<?=BASEDIR?>public/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="<?=BASEDIR?>public/lib/lightbox/js/lightbox.min.js"></script>
+    <script src="<?=BASEDIR?>public/lib/typed/typed.min.js"></script>
     <!-- Contact Form JavaScript File -->
-    <script src="/contactform/contactform.js"></script>
+    <script src="<?=BASEDIR?>public/contactform/contactform.js"></script>
 
     <!-- Template Main Javascript File -->
-    <script src="/js/main.js"></script>
+    <script src="<?=BASEDIR?>public/js/main.js"></script>
 </body>
 
 </html>
