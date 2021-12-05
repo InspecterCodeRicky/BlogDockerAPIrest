@@ -1,26 +1,12 @@
 <?php
 
-class Article {
+class Article extends CommonHydrator{
     private $_id;
     private $_title;
     private $_content;
-    private \DateTime $createdAt;
-
-    public function __construct(array $data)
-    {
-        $this->hydrate($data);
-    }
-
-    // hydratation
-    public function hydrate(array $data)
-    {
-        foreach ($data as $key => $value) {
-            $method = 'set'.ucfirst($key);
-            if(method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-    }
+    private $_author_id;
+    private $_image_path;
+    private $_created_at;
 
     // setters 
     public function setId($id) 
@@ -41,9 +27,18 @@ class Article {
             $this->_content = $content;
         }
     }
-    public function setDate($createdAt)
+    public function setCreatedAt($createdAt)
     {
-        $this->createdAt = $createdAt;
+        $this->_created_at = $createdAt;
+    }
+    public function setAuthorId($authorId)
+    {
+        $this->_author_id = $authorId;
+    }
+    public function setImage($imagePath)
+    {
+        
+        $this->_image_path = $imagePath;
     }
     
     // getters 
@@ -59,9 +54,17 @@ class Article {
     {
        return $this->_content;
     }
-    public function getDate()
+    public function getCreatedAt()
     {
-       return $this->createdAt;
+       return $this->_created_at;
+    }
+    public function getAuthorId()
+    {
+       return $this->_author_id;
+    }
+    public function getImage()
+    {
+       return $this->_image_path;
     }
 
 }

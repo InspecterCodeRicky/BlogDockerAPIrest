@@ -8,6 +8,20 @@
 </head>
 <body>
     <p>header</p>
+    <p>
+        <ul>
+            <li><a href="<?=BASEDIR?>login">se connecter</a></li>
+        </ul>
+    </p>
+    <div>
+        
+    <?php
+    $flash = new Flash();
+    if ($flash->hasFlash()) :?>
+            <p style="color: red;"><?= $flash->getFlash()['flash']; ?></p>
+    <?php 
+    endif; ?>
+    </div>
     <?=  $bodyContent ?>
     <p>footer</p>
 </body>

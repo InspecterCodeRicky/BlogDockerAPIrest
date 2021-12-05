@@ -22,7 +22,7 @@ class ArticleManager extends PDOFactory
             self::$pdo->exec($createTable);
     }
 
-    public function getArticles()
+    public function get_articles()
     {
         $var = [];
         $query = 'SELECT * FROM ' . PDOFactory::DATABASE . '.blog';
@@ -34,5 +34,17 @@ class ArticleManager extends PDOFactory
         return $var;
         $req->closeCursor();
         
+    }
+    public function get_article_by_id(string $id) : ?Article
+    {
+        $query = 'SELECT * FROM ' . PDOFactory::DATABASE . '.blog WHERE id = :id';
+        $req = self::$pdo->prepare($query);
+        $req->bindValue(':id', $id);
+        $req->execute();
+        if($req->rowCount()>0 && $req->setFetchMode(\PDO::FETCH_CLASS, 'Article')) {
+            return new Article($req->fetch(PDO::FETCH_ASSOC));
+        }
+        return null;
+        $req->closeCursor();
     }
 }

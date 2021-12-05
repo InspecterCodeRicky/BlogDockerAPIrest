@@ -9,12 +9,11 @@ class ControllerError extends ControllerBigBoss
         return $this->MakeView("Error 404", [], "error");
     }
 
-    public function executeNoRouteJSON()
+    public function APINotFound()
     {
-        $this->HTTPResponse->addHeader('HTTP/1.0 404 Not Found');
         return $this->renderJSON([
-            'status' => 0,
-            'error' => 'Nothing found at this address'
+            'status' => 404,
+            'error' => 'KO'
         ]);
     }
 }
