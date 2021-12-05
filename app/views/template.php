@@ -11,6 +11,7 @@
     <p>
         <ul>
             <li><a href="<?=BASEDIR?>login">se connecter</a></li>
+            <li><a href="<?=BASEDIR?>logout">logout</a></li>
         </ul>
     </p>
     <div>

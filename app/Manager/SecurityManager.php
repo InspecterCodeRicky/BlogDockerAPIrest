@@ -24,10 +24,13 @@ class SecurityManager extends PDOFactory
     }
 
     // METHOD RETURN TRUE IF USER IS Valid
-    public function is_valid_user($email = null, $password = null): bool
+    public function is_valid_user($email = null, $password = null, $actionCheck = null): bool
     {
         $user = $this->get_user_by_email($email);
-        if ($user !== null && password_verify($password, $user->getPassword())) {
+        if ($actionCheck == null && $user !== null && password_verify($password, $user->getPassword())) {
+            return true;
+        }
+        if ($actionCheck === "verify_password_user" && $user->getPassword() === $password) {
             return true;
         }
         return false;
@@ -40,7 +43,6 @@ class SecurityManager extends PDOFactory
 
     public function get_user_session(): ?User 
     {
-        var_dump($_SESSION['user_info']);
         if(isset($_SESSION['user_info'])) {
             return unserialize($_SESSION['user_info']);
         }
@@ -71,7 +73,6 @@ class SecurityManager extends PDOFactory
         $req->execute();
         $req->execute();
         if($req->rowCount()>0 && $req->setFetchMode(\PDO::FETCH_CLASS, 'User')) {
-            echo 'ekjdks';
             return new User($req->fetch(PDO::FETCH_ASSOC));
         }
         return null;

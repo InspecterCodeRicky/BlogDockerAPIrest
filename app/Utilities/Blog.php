@@ -9,7 +9,6 @@ class Blog {
   public function getRoute() {
     global $Routes;
     $uri = $_SERVER['REQUEST_URI'];
-    // Check if the route is in $Routes
     if (in_array(explode('?',$uri)[0], $Routes)) {
       return $uri;
     }

@@ -14,9 +14,28 @@ Route::set('home', function() {
 Route::set('article/<1>', function() {
   GetController::runController('ControllerArticles', 'getOneArticle');
 });
+Route::set('add-article', function() {
+  GetController::runController('ControllerArticles', 'addArticle');
+});
+Route::set('remove-article/<1>', function() {
+  GetController::runController('ControllerArticles', 'removeArticle');
+});
+Route::set('add-comment/<1>', function() {
+  GetController::runController('ControllerComment', 'addComment');
+});
+Route::set('remove-comment/<1>', function() {
+  GetController::runController('ControllerArticles', 'removeArticle');
+});
+Route::set('update-article/<1>', function() {
+  GetController::runController('ControllerArticles', 'addArticle');
+});
+
 // routes security user auth
 Route::set('login', function() {
   GetController::runController('ControllerSecurity', 'login');
+});
+Route::set('logout', function() {
+  GetController::runController('ControllerSecurity', 'logOut');
 });
 Route::set('register', function() {
   GetController::runController('ControllerSecurity', 'register');

@@ -3,7 +3,7 @@
 class Request {
 
   public static function post($data) {
-
+    
     $file = file_get_contents("php://input");
     $file = explode("&", $file);
     for ($i = 0; $i < count($file); $i++) {

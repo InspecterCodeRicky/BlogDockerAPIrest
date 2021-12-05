@@ -11,9 +11,9 @@ class Article extends CommonHydrator{
     // setters 
     public function setId($id) 
     {
-        // if(is_string($id)) {
+        if(is_int($id)) {
             $this->_id = $id;
-        // }
+        }
     }
     public function setTitle($title)
     {
@@ -29,16 +29,21 @@ class Article extends CommonHydrator{
     }
     public function setCreatedAt($createdAt)
     {
-        $this->_created_at = $createdAt;
+        if(is_string($createdAt)) {
+            $this->_created_at = $createdAt;
+        }
     }
     public function setAuthorId($authorId)
     {
-        $this->_author_id = $authorId;
+        if(is_int($authorId)) {
+            $this->_author_id = $authorId;
+        }
     }
     public function setImage($imagePath)
     {
-        
-        $this->_image_path = $imagePath;
+        if(is_string($imagePath)) {
+            $this->_image_path = $imagePath;
+        }
     }
     
     // getters 

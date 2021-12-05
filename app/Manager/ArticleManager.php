@@ -66,9 +66,9 @@ class ArticleManager extends PDOFactory
     public function addArticle($title, $content, $image, $authorId) {
         $pdo = ArticleManager::$pdo;
         try {
-            $sql = "INSERT INTO blog (id, title, content, createdAt, image, authorId) VALUES (?,?,?,?,?,?)";
+            $sql = "INSERT INTO blog (title, content, createdAt, image, authorId) VALUES (?,?,?,?,?)";
             $stmt= $pdo->prepare($sql);
-            $stmt->execute([null, $title, $content, date('Y-m-d H:i:s'), $image, $authorId]);
+            $stmt->execute([$title, $content, date('Y-m-d H:i:s'), $image, $authorId]);
         }catch (Exception $e){
             throw $e;
         }

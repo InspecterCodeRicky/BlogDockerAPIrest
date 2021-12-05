@@ -20,8 +20,13 @@ abstract class ControllerBigBoss
         return require 'Views/template.php';
     }
 
-    public function renderJSON($content)
+    public function getParams(int $position) {
+        return explode('/', $_SERVER['REQUEST_URI'])[$position];
+    }
+
+    public function redirectNewRoute(string $newRoute)
     {
-        echo json_encode($content, JSON_PRETTY_PRINT);
+        header('Location: '.$newRoute);
+        exit;
     }
 }

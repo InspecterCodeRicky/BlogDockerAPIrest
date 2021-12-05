@@ -10,4 +10,5 @@ $Routes = array();
 */
 
 // var_dump($_GET);
+session_start();
 define( 'BASEDIR', '/' );
