@@ -1296,3 +1296,12 @@ footer .credits a {
   color: black;
   font-weight: 600;
 }
+
+.addArticle {
+  color: #0062d3;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-decoration: underline;
+  font-size: 24px;
+  font-weight: 700;
+}

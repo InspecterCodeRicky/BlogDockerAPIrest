@@ -37,28 +37,39 @@
 
     <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll" href="#page-top">Hello!</a>
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll active" href="<?= BASEDIR ?>">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll active" href="<?= BASEDIR ?>">Articles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll" href="<?= BASEDIR ?>login">LOGIN</a>
-                    </li>
-                </ul>
-            </div>
+        <a class="navbar-brand js-scroll" href="#page-top">Hello!</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+            aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll active" href="<?=BASEDIR?>">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll active" href="<?=BASEDIR?>">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll" >About</a>
+                </li>
+                <li class="nav-item">
+                    <?php
+                        if(isset($_SESSION['user_info'])) {
+                    ?>
+                        <a class="nav-link js-scroll" href="<?=BASEDIR?>profile">MY PROFIL</a>
+                    <?php
+                        } else {
+                    ?>
+                    <a class="nav-link js-scroll" href="<?=BASEDIR?>login">LOGIN</a>
+                    <?php
+                        }
+                    ?>
+                </li>
+            </ul>
+        </div>
         </div>
     </nav>
 
@@ -70,7 +81,7 @@
         <?php
         endif; ?>
     </div>
-    
+
     <?= $bodyContent ?>
     <!-- <p>footer</p> -->
 
