@@ -27,10 +27,10 @@ Route::set('profile', function() {
 
 
 // api routes
-Route::set('api/articles', function() {
-  GetController::runController('ControllerArticles', 'multi');
+Route::setAPI('api/articles', function() {
+  GetController::runController('ControllerApiArticles', 'multi');
 });
 
-Route::set('api/article', function() {
-  GetController::runController('ControllerArticles', 'apiArticle');
+Route::setAPI('api/details-article', function() {
+  GetController::runController('ControllerApiArticles', 'apiArticle');
 });

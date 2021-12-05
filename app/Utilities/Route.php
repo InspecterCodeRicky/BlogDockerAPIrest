@@ -46,14 +46,27 @@ class Route
   // Register the route
   public static function set($route, $closure)
   {
-   
-    if ($_SERVER['REQUEST_URI'] == BASEDIR.$route) {
+    if ($_SERVER['REQUEST_URI'] === BASEDIR.$route) {
       self::registerRoute($route);
       $closure->__invoke();
-    } else if (explode('?', $_SERVER['REQUEST_URI'])[0] == BASEDIR.$route) {
+    } else if (explode('?', $_SERVER['REQUEST_URI'])[0] === BASEDIR.$route) {
       self::registerRoute($route);
       return $closure->__invoke();
-    } else if ($_GET['url'] == explode('/', $route)[0]) {
+    } else if ($_GET['url'] === explode('/', $route)[0]) {
+      self::registerRoute(self::dyn($route));
+      $closure->__invoke();
+    }
+  }
+
+  public static function setAPI($route, $closure)
+  {
+    if ($_SERVER['REQUEST_URI'] === BASEDIR.$route) {
+      self::registerRoute($route);
+      $closure->__invoke();
+    } else if (explode('?', $_SERVER['REQUEST_URI'])[1] === BASEDIR.$route) {
+      self::registerRoute($route);
+      return $closure->__invoke();
+    } else if ($_GET['url'] === explode('/', $route)[1]) {
       self::registerRoute(self::dyn($route));
       $closure->__invoke();
     }

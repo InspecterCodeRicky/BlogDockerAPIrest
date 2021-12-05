@@ -5,7 +5,6 @@ class GetController
 
   static function runController($controller, $action = "null")
     {
-  
       if (Route::isRouteValid()) {
         $controller = ucfirst($controller);
         $controllerClass = $controller;

@@ -13,7 +13,7 @@ class Blog {
     if (in_array(explode('?',$uri)[0], $Routes)) {
       return $uri;
     }
-    header('Location: error');
+    header('Location: /error');
     exit();
   }
   
